@@ -1,0 +1,65 @@
+*** After kernel graph-pass 'Init Graph' ***
+node "<{HWOffsetFix:32, 0, UNSIGNED}>" (ID 730) has unconnected outputs: [output]
+stack trace of node origin follows:
+	com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.shiftRight(DFEVar.java:258)
+	exampleproject.Utils.MBlock_j(Utils.maxj:232)
+	exampleproject.prf_v2Kernel.<init>(prf_v2Kernel.maxj:34)
+	exampleproject.ExampleProjectManager.<init>(ExampleProjectManager.maxj:28)
+	exampleproject.ExampleProjectManager.main(ExampleProjectManager.maxj:58)
+	
+node "<{HWOffsetFix:32, 0, UNSIGNED}>" (ID 735) has unconnected outputs: [output]
+stack trace of node origin follows:
+	com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.shiftRight(DFEVar.java:258)
+	exampleproject.Utils.MBlock_j(Utils.maxj:232)
+	exampleproject.prf_v2Kernel.<init>(prf_v2Kernel.maxj:34)
+	exampleproject.ExampleProjectManager.<init>(ExampleProjectManager.maxj:28)
+	exampleproject.ExampleProjectManager.main(ExampleProjectManager.maxj:58)
+	
+node "<{HWOffsetFix:32, 0, UNSIGNED}>" (ID 740) has unconnected outputs: [output]
+stack trace of node origin follows:
+	com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.shiftRight(DFEVar.java:258)
+	exampleproject.Utils.MBlock_j(Utils.maxj:232)
+	exampleproject.prf_v2Kernel.<init>(prf_v2Kernel.maxj:34)
+	exampleproject.ExampleProjectManager.<init>(ExampleProjectManager.maxj:28)
+	exampleproject.ExampleProjectManager.main(ExampleProjectManager.maxj:58)
+	
+node "<{HWOffsetFix:32, 0, UNSIGNED}>" (ID 745) has unconnected outputs: [output]
+stack trace of node origin follows:
+	com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.shiftRight(DFEVar.java:258)
+	exampleproject.Utils.MBlock_j(Utils.maxj:232)
+	exampleproject.prf_v2Kernel.<init>(prf_v2Kernel.maxj:34)
+	exampleproject.ExampleProjectManager.<init>(ExampleProjectManager.maxj:28)
+	exampleproject.ExampleProjectManager.main(ExampleProjectManager.maxj:58)
+	
+node "<{HWOffsetFix:32, 0, UNSIGNED}>" (ID 750) has unconnected outputs: [output]
+stack trace of node origin follows:
+	com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.shiftRight(DFEVar.java:258)
+	exampleproject.Utils.MBlock_j(Utils.maxj:232)
+	exampleproject.prf_v2Kernel.<init>(prf_v2Kernel.maxj:34)
+	exampleproject.ExampleProjectManager.<init>(ExampleProjectManager.maxj:28)
+	exampleproject.ExampleProjectManager.main(ExampleProjectManager.maxj:58)
+	
+node "<{HWOffsetFix:32, 0, UNSIGNED}>" (ID 755) has unconnected outputs: [output]
+stack trace of node origin follows:
+	com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.shiftRight(DFEVar.java:258)
+	exampleproject.Utils.MBlock_j(Utils.maxj:232)
+	exampleproject.prf_v2Kernel.<init>(prf_v2Kernel.maxj:34)
+	exampleproject.ExampleProjectManager.<init>(ExampleProjectManager.maxj:28)
+	exampleproject.ExampleProjectManager.main(ExampleProjectManager.maxj:58)
+	
+node "<{HWOffsetFix:32, 0, UNSIGNED}>" (ID 760) has unconnected outputs: [output]
+stack trace of node origin follows:
+	com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.shiftRight(DFEVar.java:258)
+	exampleproject.Utils.MBlock_j(Utils.maxj:232)
+	exampleproject.prf_v2Kernel.<init>(prf_v2Kernel.maxj:34)
+	exampleproject.ExampleProjectManager.<init>(ExampleProjectManager.maxj:28)
+	exampleproject.ExampleProjectManager.main(ExampleProjectManager.maxj:58)
+	
+node "<{HWOffsetFix:32, 0, UNSIGNED}>" (ID 765) has unconnected outputs: [output]
+stack trace of node origin follows:
+	com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar.shiftRight(DFEVar.java:258)
+	exampleproject.Utils.MBlock_j(Utils.maxj:232)
+	exampleproject.prf_v2Kernel.<init>(prf_v2Kernel.maxj:34)
+	exampleproject.ExampleProjectManager.<init>(ExampleProjectManager.maxj:28)
+	exampleproject.ExampleProjectManager.main(ExampleProjectManager.maxj:58)
+	

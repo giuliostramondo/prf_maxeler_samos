@@ -1,0 +1,33 @@
+package exampleproject;
+
+import com.maxeler.maxcompiler.v2.kernelcompiler.Kernel;
+import com.maxeler.maxcompiler.v2.kernelcompiler.KernelParameters;
+import com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEType;
+import com.maxeler.maxcompiler.v2.managers.engine_interfaces.CPUTypes;
+
+public class PRFConstants extends Kernel{
+	//static final DFEType type = dfeInt(32);
+	//static final DFEType addressType = dfeInt(64);
+	static int p = 2;
+	static int q = 4;
+    static int M = 100;
+    static int N = 100;
+    static int MEMORY_DEPTH = 1250;
+    static int MEMORY_ADDRESS_SIZE = 11; //log_2 of MEMORY_DEPTH;
+    static int FREQUENCY = 100;
+    static final DFEType type = dfeUInt(64);
+    static final CPUTypes cpu_type = CPUTypes.INT64;
+    static boolean INV_M=false;
+	static enum MappingScheme {
+		 ReO,
+		 ReRo,
+		 ReCo,
+		 RoCo,
+		 ReTr,
+		}
+	static MappingScheme mappingScheme=MappingScheme.RoCo;
+
+	protected PRFConstants(KernelParameters parameters) {
+		super(parameters);
+	}
+}

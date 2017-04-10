@@ -1,0 +1,62 @@
+package exampleproject;
+
+import com.maxeler.maxcompiler.v2.kernelcompiler.Kernel;
+import com.maxeler.maxcompiler.v2.kernelcompiler.KernelParameters;
+import com.maxeler.maxcompiler.v2.kernelcompiler.RoundingMode;
+import com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEType;
+import com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar;
+import com.maxeler.maxcompiler.v2.kernelcompiler.types.composite.DFEVector;
+
+class prf_v2Kernel extends Kernel {
+
+	private static final DFEType type = PRFConstants.type;
+	static int p = PRFConstants.p;
+	static int q = PRFConstants.q;
+	protected prf_v2Kernel(KernelParameters parameters) {
+		super(parameters);
+
+		//IMPORTANT without this optimization the default rounding mode is to the nearest-integer
+		optimization.pushRoundingMode(RoundingMode.TRUNCATE);
+
+		DFEVar index_i = io.input("index_i", type);
+		DFEVar index_j = io.input("index_j", type);
+		DFEVar acc_type = io.input("acc_type", type);
+		DFEVar write_enable = io.input("write_enable", type);
+		DFEVar input_data_arr[][] = new DFEVar[p][q];
+		for(int i =0 ; i< p ; i++)
+			for(int j =0; j< q; j++){
+			input_data_arr[i][j] = io.input("input_data_arr"+i+"_"+j, type);
+		}
+
+		DFEVector<DFEVar> aguOutput = Utils.AGU(index_i, index_j, acc_type);
+		DFEVar in_memory_addr[][] = Utils.A_standard(aguOutput);
+		DFEVar reordering_signal_i[][];
+		DFEVar reordering_signal_j[][];
+		DFEVar inv_reordering_signal_i[][];
+		DFEVar inv_reordering_signal_j[][];
+		DFEVar reordered_in_memory_addr[];
+		DFEVar reordered_input_data_arr[];
+		reordering_signal_i= Utils.MBlock_i(aguOutput);
+		reordering_signal_j = Utils.MBlock_j(aguOutput);
+		if(PRFConstants.INV_M){
+			inv_reordering_signal_i = Utils.inv_MBlock_i(aguOutput, acc_type);
+			inv_reordering_signal_j = Utils.inv_MBlock_j(aguOutput, acc_type);
+			reordered_in_memory_addr = Utils.Crossbar(in_memory_addr, inv_reordering_signal_i, inv_reordering_signal_j);
+			reordered_input_data_arr = Utils.Crossbar(input_data_arr, inv_reordering_signal_i, inv_reordering_signal_j);
+		}else{
+			//reordering_signal_i= Utils.MBlock_i(aguOutput);
+			//reordering_signal_j = Utils.MBlock_j(aguOutput);
+			reordered_in_memory_addr = Utils.Inv_Crossbar(in_memory_addr, reordering_signal_i, reordering_signal_j);
+			reordered_input_data_arr = Utils.Inv_Crossbar(input_data_arr, reordering_signal_i, reordering_signal_j);
+		}
+		DFEVar mem_out[][] = Utils.parallelMemories(write_enable, reordered_input_data_arr, reordered_in_memory_addr);
+		DFEVar output[] = Utils.Crossbar(mem_out, reordering_signal_i, reordering_signal_j);
+
+		for(int i =0 ; i< p ; i++)
+			for(int j =0; j< q; j++){
+				io.output("o_"+i+"_"+j, output[i*q+j], type);
+			}
+	}
+
+}
+
