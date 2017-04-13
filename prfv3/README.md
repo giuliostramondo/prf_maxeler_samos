@@ -1,4 +1,3 @@
-=============================
 Polymorphic Register File (PRF) MaxJ implementation
 =============================
 
