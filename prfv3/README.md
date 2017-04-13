@@ -1,8 +1,8 @@
 =============================
-prfv3
+Polymorphic Register File (PRF) MaxJ implementation
 =============================
 
-An example project.
+Description of the project
 
 
 Introduction
@@ -23,7 +23,3 @@ Features
 * TODO
 
 
-To-Do
------
-
-* TODO
